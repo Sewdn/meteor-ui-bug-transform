@@ -1,0 +1,18 @@
+<head>
+  <title>bug</title>
+</head>
+
+<body>
+  {{> test}}
+</body>
+
+<template name="test">
+  <a href="#" class="sort">change sorting</a><br/>
+  <a href="#" class="criteria">change criteria</a><br/>
+  <a href="#" class="insert">insert</a><br/>
+  <ul>
+    {{#each items}}
+    <li>{{title}}{{test}}{{#if isSelected}} (*){{/if}}</li>
+    {{/each}}
+  <li>
+</template>
