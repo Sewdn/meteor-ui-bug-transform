@@ -5,7 +5,7 @@ if (Meteor.isClient) {
   };
 
   Session.setDefault('sort', -1);
-  Session.setDefault('pivot', randomIndex());
+  Session.setDefault('pivot', chars.length / 2);
 
   var items = new Meteor.Collection(null,{
     transform: function (doc) { return new Item(doc); }
@@ -45,7 +45,7 @@ if (Meteor.isClient) {
       items.insert({title: 'new item ' + chars.charAt(randomIndex())});
     },
     'click a.criteria': function(){
-      Session.set('pivot', randomIndex());
+      Session.set('pivot', Session.get('pivot') + 2);
     },
     'click li': function(){
       this.select();
